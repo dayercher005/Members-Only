@@ -1,9 +1,10 @@
 ## Project Structure
-
+```bash
 .
 ├── app.js
 ├── package-lock.json
 ├── package.json
+├── public
 ├── README.md
 └── src
     ├── controllers
@@ -11,7 +12,9 @@
     ├── routes
     └── views
 
+```
 ---
+
 
 ## How to Run
 
