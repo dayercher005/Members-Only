@@ -1,6 +1,8 @@
 import { body, validationResult, matchedData } from 'express-validator'
 
 const validateSignUpUser = [
+    body("fullName")
+    .trim(),
     body("username")
     .trim(),
     body("password")
@@ -16,6 +18,6 @@ export const sendSignUpForm = [
             response.status(404).render()
         }
 
-        const { username, password } = matchedData(request);
+        const { fullName, username, password } = matchedData(request);
     }
 ]
