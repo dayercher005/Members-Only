@@ -12,7 +12,12 @@ CREATE TABLE IF NOT EXISTS members(
     membership VARCHAR ( 255 )
 )
 
-
+CREATE TABLE IF NOT EXISTS message_tracker(
+    id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    name VARCHAR ( 255 ),
+    email VARCHAR ( 255 ),
+    message VARCHAR ( 255 )
+)
 
 `
 
