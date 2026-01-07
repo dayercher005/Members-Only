@@ -1,6 +1,8 @@
 import express from 'express';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { SignUpFormRouter } from './src/routes/Sign-Up/sign-up.js';
+import { LogInFormRouter } from './src/routes/Log-In/log-in.js';
 
 const app = express();
 
@@ -13,13 +15,14 @@ app.set("views", path.join(__dirname, "src/views"));
 app.set("view engine", "ejs");
 
 app.use(express.urlencoded({ extended: true }));
-
+app.use("/sign-up", SignUpFormRouter);
+app.use("/log-in", LogInFormRouter);
 
 
 const PORT = 8080;
 app.listen(PORT, (error) => {
   if (error) {
-    renderErrorPage()
+    return error
   }
-  console.log(`Game Inventory Application - listening on port ${PORT}!`);
+  console.log(`Members-Only Application - listening on port ${PORT}!`);
 });
