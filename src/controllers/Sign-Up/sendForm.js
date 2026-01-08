@@ -3,17 +3,20 @@ import { AddSignUpMembers } from '../../db/Queries/Create.js';
 
 const validateSignUpUser = [
     body("fullName")
-    .trim()
-    .withMessage("Please Input Your Name"),
+    .trim(),
     body("username")
     .trim()
     .isEmail()
     .withMessage("Username must be an Email"),
     body("password")
-    .trim(),
-    body("confirmPassword")
-    .trim()
-    .withMessage("Passwords must match")
+    .isLength({min: 5})
+    .withMessage("Password must have a minimum of 5 characters"),
+    body("confirmPassword").custom((confirmPassword, {request}) => {
+        if (confirmPassword !== request.body.password){
+            return Error('Passwords do not match!')
+        }
+        return true
+    })
 ]
 
 export const sendSignUpForm = [
@@ -21,12 +24,13 @@ export const sendSignUpForm = [
     (request, response) => {
 
         const errors = validationResult(request);
-        if (!errors.array.isEmpty()){
-            response.status(404).render()
+        if (!errors.isEmpty()){
+            response.status(404).render("partials/error")
         }
 
-        const { fullName, email, password } = matchedData(request);
-        AddSignUpMembers(fullName, email, password);
+        const { data } = matchedData(request);
+        const { fullName, username, password, confirmPassword } = data;
+        AddSignUpMembers(fullName, username, password)
         response.redirect("/log-in");
     }
 ]
