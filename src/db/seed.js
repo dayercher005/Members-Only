@@ -8,8 +8,7 @@ CREATE TABLE IF NOT EXISTS members(
     id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     name VARCHAR ( 255 ),
     email VARCHAR ( 255 ),
-    password VARCHAR ( 255 ),
-    membership VARCHAR ( 255 )
+    password VARCHAR ( 255 )
 )
 
 CREATE TABLE IF NOT EXISTS message_tracker(
