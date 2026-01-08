@@ -1,5 +1,6 @@
 import { Router } from 'express';
+import { renderIndexPage } from '../../controllers/MessagesPage/renderIndex.js'
 
-export const indexRouter = Router();
+export const IndexRouter = Router();
 
-indexRouter.get("/", );
+IndexRouter.get("/", renderIndexPage);
