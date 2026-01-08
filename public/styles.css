@@ -76,6 +76,7 @@ input:focus{
     border-color: rgb(45, 110, 231);
 }
 
+
 button{
     width: 100%;
     padding: 16px;
@@ -95,4 +96,58 @@ button{
 button:hover{
     transform: translateY(-2px);
     box-shadow: 0 10px 30px rgba(67, 67, 67, 0.6);
+}
+
+
+body[class="errorBody"]{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: hsl(0, 5%, 7%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+.errorContainer{
+    text-align: center;
+}
+
+.errorCode{
+    font-size: 5.75rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.errorMessage{
+    font-size: 2rem;
+    margin: 1.5rem 0;
+    font-weight: 300;
+}
+
+.errorDescription{
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+    max-width: 500px;
+}
+
+.homeButton{
+    display: inline-block;
+    padding: 1.2rem 2.3rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 45px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.homeButton:hover{
+    transform: translateY(-3px);
+    background: hsla(0, 2%, 78%, 0.5);
 }
