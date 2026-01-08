@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body{
+body[class="FormPage"]{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     background: #0a0a0a;
     min-height: 100vh;
@@ -15,6 +15,8 @@ body{
     position: relative;
     overflow: hidden;
 }
+
+/* CSS Styling for Forms Page */
 
 .formHeaderText{
     color: #fff;
@@ -76,6 +78,8 @@ input:focus{
     border-color: rgb(45, 110, 231);
 }
 
+
+/* CSS Styling for Error Page */
 
 button{
     width: 100%;
@@ -150,4 +154,72 @@ body[class="errorBody"]{
 .homeButton:hover{
     transform: translateY(-3px);
     background: hsla(0, 2%, 78%, 0.5);
+}
+
+/* CSS Styling for Home Page*/
+
+body[class="Homepage"]{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: #0a0a0a;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+nav{
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 0 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.navbarContainer{
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.logoText{
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: hsl(0, 0%, 100%);
+}
+
+.buttonContainer{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.button{
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    border: none;
+}
+
+.button:hover{
+    transform: translateY(-2px);
+    box-shadow: 1px 1px 80px 1px  hsla(0, 0%, 100%, 0.7)
+}
+
+.loginButton{
+    background: hsl(0, 0%, 100%);
+    color: #2563eb;
+    border: 2px solid #ffffff;
+}
+
+.signupButton{
+    background: #2563eb;
+    color: white;
+    border: 2px solid #2563eb;
 }
