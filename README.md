@@ -5,12 +5,55 @@
 ├── package-lock.json
 ├── package.json
 ├── public
+│   └── styles.css
 ├── README.md
 └── src
+    ├── config
+    │   └── passport.js
     ├── controllers
+    │   ├── Error
+    │   │   └── error.js
+    │   ├── Log-In
+    │   │   ├── renderForm.js
+    │   │   └── sendForm.js
+    │   ├── Log-Out
+    │   │   └── log-out.js
+    │   ├── MessagesPage
+    │   │   └── renderIndex.js
+    │   └── Sign-Up
+    │       ├── renderForm.js
+    │       └── sendForm.js
     ├── db
+    │   ├── pool.js
+    │   ├── Queries
+    │   │   ├── Create.js
+    │   │   ├── Delete.js
+    │   │   ├── Read.js
+    │   │   └── Update.js
+    │   └── seed.js
     ├── routes
+    │   ├── Error
+    │   │   └── error.js
+    │   ├── Log-In
+    │   │   └── log-in.js
+    │   ├── Log-Out
+    │   │   └── log-out.js
+    │   ├── MessagesPage
+    │   │   └── index.js
+    │   └── Sign-Up
+    │       └── sign-up.js
     └── views
+        ├── CreateNewMessage
+        │   └── createNewMessage.ejs
+        ├── Log-In
+        │   └── log-in.ejs
+        ├── MessagesPage
+        │   └── index.ejs
+        ├── partials
+        │   ├── error.ejs
+        │   └── navbar.ejs
+        └── Sign-Up
+            └── sign-up.ejs
 
 ```
 ---
