@@ -1,12 +1,19 @@
-import { body, validationResult, matchedData } from 'express-validator'
+import { body, validationResult, matchedData } from 'express-validator';
+import { AddSignUpMembers } from '../../db/Queries/Create.js';
 
 const validateSignUpUser = [
     body("fullName")
-    .trim(),
-    body("username")
-    .trim(),
-    body("password")
     .trim()
+    .withMessage("Please Input Your Name"),
+    body("username")
+    .trim()
+    .isEmail()
+    .withMessage("Username must be an Email"),
+    body("password")
+    .trim(),
+    body("confirmPassword")
+    .trim()
+    .withMessage("Passwords must match")
 ]
 
 export const sendSignUpForm = [
@@ -18,6 +25,8 @@ export const sendSignUpForm = [
             response.status(404).render()
         }
 
-        const { fullName, username, password } = matchedData(request);
+        const { fullName, email, password } = matchedData(request);
+        AddSignUpMembers(fullName, email, password);
+        response.redirect("/log-in");
     }
 ]
