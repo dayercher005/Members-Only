@@ -7,10 +7,9 @@
 </head>
 <body class="Homepage">
   <% if (locals.user) {%>
-    <h1>WELCOME BACK <%= user.username %></h1>
-    <a href="/log-out">LOG OUT</a>
+    <%- include('../partials/authenticatedNavbar', {user: locals.user}) %>
   <% } else { %>
-    <%- include('../partials/navbar') %>
+    <%- include('../partials/unauthenticatedNavbar') %>
     
   <%}%>
 </body>
