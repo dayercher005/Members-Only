@@ -16,15 +16,15 @@ CREATE TABLE IF NOT EXISTS members(
 CREATE TABLE IF NOT EXISTS messages(
     id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     name VARCHAR ( 255 ),
-    email VARCHAR ( 255 ),
+    date TIMESTAMP DEFAULT LOCALTIMESTAMP,
     message VARCHAR ( 255 )
 );
 
 INSERT INTO members(name, email, password) VALUES
     ('Raphael Ho Zi Jie', 'raphaelhozj@gmail.com', '676767');
 
-INSERT INTO messages(name, email, message) VALUES
-    ('Raphael Ho Zi Jie', 'raphaelhozj@gmail.com', 'I goon to Arsernal');
+INSERT INTO messages(name, message) VALUES
+    ('Raphael Ho Zi Jie', 'I goon to Arsernal');
 
 `
 
