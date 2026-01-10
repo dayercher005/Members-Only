@@ -5,7 +5,20 @@
         <h1 class="UserHeader">Welcome Back <%= user.name %> </h1>
 
         <div class="buttonContainer">
-            <a class="button logButton" href="/log-out">LOG OUT</a>
+            <a class="button signupButton" href="/createNewMessage">Create New Message</a>
+            <a class="button logButton" href="/log-out">Log Out</a>
         </div>
     </div>
 </nav>
+
+<div class="allMessages">
+    <% messages.map(message => {%>
+        <div class="messageContainer">
+            <div class="messageSecondaryContainer">
+                <p class="messageParagraph"><%= message.name%></p>
+                <p class="messageParagraph"><%= message.date %></p>
+            </div>
+            <p class="messageParagraph"><%= message.message%></p>
+        </div>
+    <% }) %>
+</div>
