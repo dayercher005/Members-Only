@@ -5,6 +5,7 @@ import { IndexRouter } from './src/routes/MessagesPage/index.js';
 import { SignUpFormRouter } from './src/routes/Sign-Up/sign-up.js';
 import { LogInFormRouter } from './src/routes/Log-In/log-in.js';
 import { LogOutRouter } from './src/routes/Log-Out/log-out.js';
+import { CreateNewMessageRouter } from './src/routes/CreateNewMessage/createNewMessage.js';
 import { ErrorRouter } from './src/routes/Error/error.js';
 import { pool } from './src/db/pool.js';
 import passport from 'passport';
@@ -66,6 +67,7 @@ app.use("/", IndexRouter);
 app.use("/sign-up", SignUpFormRouter);
 app.use("/log-in", LogInFormRouter);
 app.use("/log-out", LogOutRouter);
+app.use("/createNewMessage", CreateNewMessageRouter);
 app.use("/error", ErrorRouter);
 
 
