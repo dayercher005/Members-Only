@@ -16,20 +16,20 @@ CREATE TABLE IF NOT EXISTS members(
 CREATE TABLE IF NOT EXISTS messages(
     id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     name VARCHAR ( 255 ),
-    date TIMESTAMP DEFAULT LOCALTIMESTAMP,
+    date TIMESTAMP DEFAULT NOW(),
     message VARCHAR ( 255 )
 );
 
 INSERT INTO members(name, email, password) VALUES
-    ('Raphael Ho Zi Jie', 'raphaelhozj@gmail.com', '676767');
-    ('Hector Chia Yi Tao', 'raptox107@gmail.com', '6767676');
-    ('Tan Yi Rui', 'yirui23@gmail.com', '696969');
+    ('Raphael Ho Zi Jie', 'raphaelhozj@gmail.com', '676767'),
+    ('Hector Chia Yi Tao', 'raptox107@gmail.com', '6767676'),
+    ('Tan Yi Rui', 'yirui23@gmail.com', '696969'),
     ('Ting Wey Jay Gerard', 'g3r00dsicpark@gmail.com', '69696969');
 
 INSERT INTO messages(name, message) VALUES
-    ('Raphael Ho Zi Jie', 'I love Arsernal')
-    ('Hector Chia Yi Tao', 'I love RSAF')
-    ('Tan Yi Rui', 'I love RSAF too')
+    ('Raphael Ho Zi Jie', 'I love Arsernal'),
+    ('Hector Chia Yi Tao', 'I love RSAF'),
+    ('Tan Yi Rui', 'I love RSAF too'),
     ('Ting Wey Jay Gerard', 'I love Yifan Li');
 `
 
