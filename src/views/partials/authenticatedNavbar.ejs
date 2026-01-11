@@ -16,7 +16,7 @@
         <div class="messageContainer">
             <div class="messageSecondaryContainer">
                 <p class="messageParagraph"><%= message.name%></p>
-                <p class="messageParagraph"><%= message.date %></p>
+                <p class="messageParagraph"><%= message.date.toISOString().split('T')[0] + ' ' + message.date.toTimeString().split(' ')[0] %></p>
             </div>
             <p class="messageParagraph"><%= message.message%></p>
         </div>
