@@ -4,5 +4,12 @@ import { renderNewMessageForm, sendNewMessageForm } from '../../controllers/Crea
 
 export const CreateNewMessageRouter = Router();
 
-CreateNewMessageRouter.get("/", renderNewMessageForm);
+function ensureAuthentication(request, response, next){
+    if (request.isAuthenticated()){
+        return next();
+    }
+    response.redirect('/log-in');
+}
+
+CreateNewMessageRouter.get("/", ensureAuthentication , renderNewMessageForm);
 CreateNewMessageRouter.post("/", sendNewMessageForm);
