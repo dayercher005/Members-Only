@@ -7,10 +7,9 @@ import { LogInFormRouter } from './src/routes/Log-In/log-in.js';
 import { LogOutRouter } from './src/routes/Log-Out/log-out.js';
 import { CreateNewMessageRouter } from './src/routes/CreateNewMessage/createNewMessage.js';
 import { ErrorRouter } from './src/routes/Error/error.js';
-import { pool } from './src/db/pool.js';
 import passport from 'passport';
 import session from 'express-session';
-import LocalStrategy from 'passport-local';
+import { PassportConfiguration } from './src/config/passport.js';
 
 
 const app = express();
@@ -27,40 +26,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(session({ secret: "cats", resave: false, saveUninitialized: false }))
 app.use(passport.session())
 
-passport.use(
-    new LocalStrategy( async (email, password, done) => {
-        try{
-            const { rows } = await pool.query('SELECT * FROM members WHERE email = $1', [email])
-            const member = rows[0];
-
-            if (!member){
-                return done(null, false, {message: "Incorrect Username"})
-            }
-
-            if (member.password !== password){
-                return done(null, false, {message: "Incorrect password"})
-            }
-            return done(null, member);
-
-        } catch(error){
-            return done(error)
-        }
-    })
-)
-
-passport.serializeUser((member, done) => {
-    done(null, member.id);
-})
-
-passport.deserializeUser( async (id, done) => {
-    try{
-        const { rows } = await pool.query('SELECT * FROM members WHERE id = $1', [id])
-        const member = rows[0];
-        done(null, member);
-    } catch(error){
-        done(error)
-    }
-})
+PassportConfiguration(passport);
 
 
 app.use("/", IndexRouter);
