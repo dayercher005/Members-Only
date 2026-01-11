@@ -16,9 +16,8 @@ export const  sendNewMessageForm = [
         if (!errors.isEmpty()){
             response.status(404).render("partials/error")
         }
-        const message = matchedData(request);
-        AddMessage(message);
+        const { message } = matchedData(request);
+        AddMessage(request.user.name, message);
         response.redirect("/");
     }
-    
 ]
