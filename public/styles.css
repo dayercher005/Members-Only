@@ -236,6 +236,8 @@ h1[class="UserHeader"]{
 }
 
 div[class="allMessages"]{
+    display: flex;
+    flex-direction: column;
     background: #8e8e8e;
     max-width: 60%;
     margin-right: auto;
@@ -243,6 +245,8 @@ div[class="allMessages"]{
     margin-top: 2rem;
     padding: 0.3rem;
     border-radius: 0.6rem;
+    justify-content: center;
+    align-items: center;
 }
 
 div[class="messageContainer"]{
@@ -250,17 +254,18 @@ div[class="messageContainer"]{
     padding: 1.5rem;
     margin: 0.4rem;
     border-radius: 3rem;
-    max-width: 375px;
-    max-height: 150px;
+    min-width: 440px;
+    max-height: 160px;
 }
 
 div[class="messageSecondaryContainer"]{
     display: flex;
     justify-content: space-between;
+    padding-bottom: 1.2rem;
 }
 
 p[class="messageParagraph"]{
     color: #ffffff;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 400;
 }
