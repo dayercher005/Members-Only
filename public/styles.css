@@ -228,7 +228,11 @@ nav{
     border: 2px solid #2563eb;
 }
 
-
+.adminButton{
+    background: hsl(331, 91%, 52%);
+    color: white;
+    border: 2px solid hsl(331, 91%, 52%);
+}
 
 h1[class="UserHeader"]{
     text-align: center;
