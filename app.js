@@ -6,6 +6,7 @@ import { SignUpFormRouter } from './src/routes/Sign-Up/sign-up.js';
 import { LogInFormRouter } from './src/routes/Log-In/log-in.js';
 import { LogOutRouter } from './src/routes/Log-Out/log-out.js';
 import { CreateNewMessageRouter } from './src/routes/CreateNewMessage/createNewMessage.js';
+import { AdminRouter } from './src/routes/Admin/renderAdminForm.js';
 import { ErrorRouter } from './src/routes/Error/error.js';
 import passport from 'passport';
 import session from 'express-session';
@@ -34,6 +35,7 @@ app.use("/sign-up", SignUpFormRouter);
 app.use("/log-in", LogInFormRouter);
 app.use("/log-out", LogOutRouter);
 app.use("/createNewMessage", CreateNewMessageRouter);
+app.use("/admin", AdminRouter);
 app.use("/error", ErrorRouter);
 
 
