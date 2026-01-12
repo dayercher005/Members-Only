@@ -38,3 +38,10 @@ export async function PassportConfiguration(passport){
     })
 
 }
+
+export function ensureAuthentication(request, response, next){
+    if (request.isAuthenticated()){
+        return next();
+    }
+    response.redirect('/log-in');
+}
