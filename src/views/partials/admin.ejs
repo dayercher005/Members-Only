@@ -19,7 +19,7 @@
                 <p class="messageParagraph"><%= message.date.toISOString().split('T')[0] + ' ' + message.date.toTimeString().split(' ')[0] %></p>
             </div>
             <p class="messageParagraph"><%= message.message%></p>
-            <form class="formDeleteContainer" action="" method="POST">
+            <form class="formDeleteContainer" action="/" method="POST">
                 <button class="deleteButton button" type="submit">Delete</button>
             </form>
         </div>
