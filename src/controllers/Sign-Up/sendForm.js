@@ -1,36 +1,38 @@
 import { body, validationResult, matchedData } from 'express-validator';
 import { AddSignUpMembers } from '../../db/Queries/Create.js';
+import bcrypt from 'bcryptjs';
 
 const validateSignUpUser = [
     body("fullName")
-    .trim(),
+    .notEmpty()
+    .withMessage("Full Name is required"),
     body("username")
-    .trim()
+    .notEmpty()
     .isEmail()
     .withMessage("Username must be an Email"),
     body("password")
+    .notEmpty()
     .isLength({min: 5})
     .withMessage("Password must have a minimum of 5 characters"),
-    body("confirmPassword").custom((confirmPassword, {request}) => {
-        if (confirmPassword !== request.body.password){
-            return Error('Passwords do not match!')
-        }
-        return true
+    body("confirmPassword").custom( async (confirmPassword, {request}) => {
+        return confirmPassword === request.body.password;
     })
 ]
 
 export const sendSignUpForm = [
     validateSignUpUser, 
-    (request, response) => {
+    async (request, response) => {
 
         const errors = validationResult(request);
         if (!errors.isEmpty()){
-            response.status(404).render("partials/error")
+            console.log(errors);
+            console.log(matchedData(request));
+            return response.status(404).render("partials/error", {error: errors.array()})
         }
 
-        const { data } = matchedData(request);
-        const { fullName, username, password, confirmPassword } = data;
-        AddSignUpMembers(fullName, username, password)
+        const { fullName, username, password} = matchedData(request);
+        const EncryptedPassword = await bcrypt.hash(password, 10);
+        AddSignUpMembers(fullName, username, EncryptedPassword);
         response.redirect("/log-in");
     }
 ]
