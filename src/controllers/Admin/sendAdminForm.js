@@ -2,6 +2,7 @@ import { body, validationResult, matchedData } from 'express-validator';
 import { UpdateMembership } from '../../db/Queries/Update.js';
 import dotenv from 'dotenv';
 
+dotenv.config();
 
 const adminFormValidation = [
     body("admin")
@@ -15,11 +16,12 @@ export const sendAdminForm = [
             return response.status(404).render("partials/error");
         }
 
-        const { adminPassword } = matchedData(request);
-        if (adminPassword === process.env.ADMIN_PASSWORD){
+        const { admin } = matchedData(request);
+
+        if (admin === process.env.ADMIN_PASSWORD){
             UpdateMembership("admin", request.user.id);
             return response.redirect("/");
         }
-        response.redirect("/")
+        response.redirect("/log-in")
     },
 ]
