@@ -14,8 +14,8 @@ const validateSignUpUser = [
     .notEmpty()
     .isLength({min: 5})
     .withMessage("Password must have a minimum of 5 characters"),
-    body("confirmPassword").custom( async (confirmPassword, {request}) => {
-        return confirmPassword === request.body.password;
+    body("confirmPassword").custom((validatedPassword, { req }) => {
+        return validatedPassword == req.body.password
     })
 ]
 
@@ -25,14 +25,13 @@ export const sendSignUpForm = [
 
         const errors = validationResult(request);
         if (!errors.isEmpty()){
-            console.log(errors);
-            console.log(matchedData(request));
+
             return response.status(404).render("partials/error", {error: errors.array()})
         }
 
         const { fullName, username, password} = matchedData(request);
         const EncryptedPassword = await bcrypt.hash(password, 10);
-        AddSignUpMembers(fullName, username, EncryptedPassword);
+        AddSignUpMembers(fullName, username, EncryptedPassword, 'member');
         response.redirect("/log-in");
     }
 ]
