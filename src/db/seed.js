@@ -22,6 +22,8 @@ CREATE TABLE IF NOT EXISTS messages(
     message VARCHAR ( 255 )
 );
 
+INSERT INTO messages(name, message) VALUES 
+    ('Annonymous', 'I like trains');
 `
 
 const ConnectionString = process.argv[2] === "LocalDatabase" ? process.env.LOCAL_DATABASE_URL : process.env.PRODUCTION_DATABASE_URL;
