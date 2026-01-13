@@ -234,6 +234,20 @@ nav{
     border: 2px solid hsl(331, 91%, 52%);
 }
 
+.formDeleteContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.deleteButton{
+    background: hsl(345, 91%, 51%);
+    color: white;
+    border: 2px solid hsl(345, 91%, 52%);
+    font-size: 0.9rem;
+    padding: 0.4rem;
+    max-width: 175px;
+}
+
 h1[class="UserHeader"]{
     text-align: center;
     color: #ffffff;
@@ -252,8 +266,8 @@ div[class="allMessages"]{
     justify-content: center;
     align-items: center;
 }
-
-div[class="messageContainer"]{
+div[class="messageContainer"],
+ a[class="messageContainer"]{
     background: linear-gradient(90deg, #6924f3, #1a5cea);
     padding: 1.5rem;
     margin: 0.4rem;
