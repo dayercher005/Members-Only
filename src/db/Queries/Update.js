@@ -3,6 +3,6 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-export async function UpdateMembership(password, id){
-    await pool.query('UPDATE members SET membership = admin WHERE id = $2 AND ${process.env.ADMIN_PASSWORD} = $1', [password, id])
+export async function UpdateMembership(admin, id){
+    await pool.query('UPDATE members SET membership = $1 WHERE id = $2', [admin, id])
 }
