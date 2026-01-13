@@ -6,9 +6,9 @@
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body class="Homepage">
-  <% if (locals.user && locals.user.membership === 'admin') {%>
+  <% if (user && user.membership === 'admin') {%>
     <%- include('../partials/admin', {user: locals.user}) %>
-  <% } else if(locals.user.membership === 'member') { %>
+  <% } else if(user) { %>
     <%- include('../partials/authenticatedNavbar') %>
   <%} else { %>
     <%- include('../partials/unauthenticatedNavbar') %>
