@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS members(
     name VARCHAR ( 255 ),
     email VARCHAR ( 255 ),
     password VARCHAR ( 255 ),
-    membership VARCHAR ( 255 )
+    membership VARCHAR ( 255 ) DEFAULT member
 );
 
 CREATE TABLE IF NOT EXISTS messages(
